@@ -1,8 +1,8 @@
+import Layout from './commons/ui/layout';
 import { useUser } from './commons/ui/hooks/use-user';
 
 function App() {
   const setImage = useUser(state => state.setImage);
-  const setUsername = useUser(state => state.setUsername);
   const img = useUser(state => state.image);
   const getImage = useUser(state => state.getImage);
 
@@ -19,12 +19,10 @@ function App() {
   };
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <input type="text" onChange={e => setUsername(e.target.value)} />
+    <Layout>
       <input type="file" onChange={handleChange} />
       {img && <img src={getImage().src} alt="logo" />}
-    </>
+    </Layout>
   );
 }
 
